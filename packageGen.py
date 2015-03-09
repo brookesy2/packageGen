@@ -33,7 +33,7 @@ def create_filelist(path):
                     filemeta.xmlname = directorymapping.get(directory)
                     filesdict[directorymapping.get(directory)].append(filemeta)
             except:
-                print("File error")
+                print("File error, more than likely something folder based like reports")
 
     return filesdict
 
