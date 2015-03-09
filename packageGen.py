@@ -26,15 +26,18 @@ def create_filelist(path):
     filesdict = defaultdict(list)
     for directory, directorydetails in directorydict.items():
         for x in directorydetails:
-            if x.name.split('.')[1] in mappingHelper.suffixnames():
-                filemeta = MetadataType()
-                filemeta.filename = x.name.split('.')[0]
-                filemeta.xmlname = directorymapping.get(directory)
-                filesdict[directorymapping.get(directory)].append(filemeta)
+            try:
+                if x.name.split('.')[1] in mappingHelper.suffixnames():
+                    filemeta = MetadataType()
+                    filemeta.filename = x.name.split('.')[0]
+                    filemeta.xmlname = directorymapping.get(directory)
+                    filesdict[directorymapping.get(directory)].append(filemeta)
+            except:
+                print("File error")
 
     return filesdict
 
-
+#Create the package file.
 def create_package(files):
 
     #create package.xml
