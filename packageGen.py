@@ -61,7 +61,7 @@ def create_package(files):
         name.text = k
 
     version = etree.SubElement(package, "version")
-    version.text = "27.0"
+    version.text = "33.0"
 
     packageXML = etree.ElementTree(package)
     #print(etree.tostring(packageXML, encoding='utf8', method='xml'))
